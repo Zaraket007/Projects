@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "892428602528",
+    "project_id": "contactsv3-c6d2b",
+    "storage_bucket": "contactsv3-c6d2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892428602528:android:bffa376af5572311264dc5",
+        "android_client_info": {
+          "package_name": "com.example.contactsv3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiBOu--0D_TG3aJmKKQ2gbcLW4Elc6EZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

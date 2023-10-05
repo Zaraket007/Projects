@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //method called bay Register Button
     public void registerBt(View v){
         Intent i=new Intent(MainActivity.this,SignupActivity.class);
         startActivity(i);

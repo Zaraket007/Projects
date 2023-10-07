@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -55,9 +56,19 @@ public class SignupActivity extends AppCompatActivity {
 
         //check if username empty
         if (Susername.contentEquals("")){
-            Toast.makeText(getApplicationContext(), "username Empty.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Email Empty.", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        //check if email foramt is entered correctly
+        String regex = "^[A-Za-z0-9+_.-]+@+[A-Za-z0-9+_.-]+[.com](.+)$";
+        Pattern patternEmail = Pattern.compile(regex);
+        Matcher matcherEmail = patternEmail.matcher(Susername);
+        if(!matcherEmail.matches()){
+            Toast.makeText(getApplicationContext(), "Email is not in the correct format.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
 
         //check if password less than 8 character
         if(Spassword.length()<8){
@@ -109,10 +120,19 @@ public class SignupActivity extends AppCompatActivity {
                     }
                 });
     }
-    public void signupBt(View v){
+    public void signupBt(View v) throws InterruptedException {
         String username=Eusername.getText().toString();
         String password=Epassword.getText().toString();
 
-        if(checkUserPassword()) signUp(username,password);
+        if(checkUserPassword()) {
+            signUp(username,password);
+            //delay finish() to display Toast.
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish(); // Finish the activity after the delay
+                }
+            }, 1000); // Delay for 1 second (adjust as needed)
+        }
     }
 }

@@ -95,6 +95,7 @@
                 android:id="@+id/signinbt1"
                 android:layout_width="102dp"
                 android:layout_height="wrap_content"
+                android:onClick="signInBt"
                 android:text="Sign in" />
         </LinearLayout>
 

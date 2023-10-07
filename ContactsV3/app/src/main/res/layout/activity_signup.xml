@@ -65,7 +65,7 @@
                 android:layout_height="48sp"
                 android:layout_margin="3sp"
                 android:ems="10"
-                android:hint="Mike"
+                android:hint="Mike@domain.com"
                 android:inputType="text" />
 
             <EditText

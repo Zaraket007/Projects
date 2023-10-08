@@ -42,6 +42,7 @@ public class SignupActivity extends AppCompatActivity {
     EditText phonenb;
 
     Button b;
+    boolean tag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +130,7 @@ public class SignupActivity extends AppCompatActivity {
 
     public void signUp(String username,String password){
 
+
         mAuth.createUserWithEmailAndPassword(username, password)
 
                 .addOnCompleteListener(this, task -> {
@@ -141,15 +143,18 @@ public class SignupActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "User Creation Success.",
                                 Toast.LENGTH_SHORT).show();
+                        finish();
 
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                        Toast.makeText(getApplicationContext(), "User Creation Failed.",
+                        Toast.makeText(getApplicationContext(), "Email already exist.",
                                 Toast.LENGTH_SHORT).show();
+                        tag=false;
 
                     }
                 });
+
     }
     public void signupBt(View v) throws InterruptedException {
         String username=Eusername.getText().toString();
@@ -157,13 +162,9 @@ public class SignupActivity extends AppCompatActivity {
 
         if(checkUserPassword()) {
             signUp(username,password);
+
             //delay finish() to display Toast.
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    finish(); // Finish the activity after the delay
-                }
-            }, 1000); // Delay for 1 second (adjust as needed)
+
         }
     }
 

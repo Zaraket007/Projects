@@ -10,14 +10,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/contactsviewtv"
             android:layout_width="match_parent"
             android:layout_height="79dp"
+            android:layout_weight="10"
             android:gravity="center_vertical"
-            android:textSize="30sp" />
+            android:longClickable="true"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/signoutbt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="signOutMethod"
+            android:text="Sign out" />
     </LinearLayout>
 
     <LinearLayout
@@ -27,6 +37,7 @@
         android:orientation="vertical">
 
         <ListView
+            android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -42,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"
+            android:onClick="addContact"
             android:src="@android:drawable/ic_input_add" />
     </LinearLayout>
 </LinearLayout>

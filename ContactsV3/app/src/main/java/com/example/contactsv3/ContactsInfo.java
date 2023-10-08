@@ -1,34 +1,50 @@
 package com.example.contactsv3;
 
-public class ContactsInfo {
-    String fname;
-    String lname;
-    String mNumber;
+import java.util.HashMap;
+
+public class ContactsInfo implements Cloneable{
+
+    //private String id;
+    private String first_name;
+    private String last_name;
+    private String phone_number;
+
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public ContactsInfo() {
     }
 
-    public String getFname() {
-        return fname;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLname() {
-        return lname;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
-    public String getmNumber() {
-        return mNumber;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setmNumber(String mNumber) {
-        this.mNumber = mNumber;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
+
+
 }

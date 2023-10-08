@@ -35,17 +35,14 @@ public class MainActivity extends AppCompatActivity {
         email=findViewById(R.id.usernameet1);
         password=findViewById(R.id.passwordet1);
 
-        //test
-        signIn("ziko@gmail.com","Ziko1234");
+        //signIn("ziko@gmail.com","Ziko1234");
     }
 
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
     }
-
 
 
     void signIn(String email,String password){
@@ -78,9 +75,28 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(i,007);
         super.onPause();
     }
+
+
+    boolean checkCredentials(String x){
+        if(x.equals("")) return false;
+
+        return true;
+    }
+    //method called by sign in button
     public void signInBt(View v){
         String em=email.getText().toString();
+
+        if(!checkCredentials(em)){
+            Toast.makeText(getApplicationContext(),"Email is empty!",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String ps=password.getText().toString();
+        if(!checkCredentials(ps)){
+            Toast.makeText(getApplicationContext(),"Password is empty!",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         signIn(em,ps);
 
     }
